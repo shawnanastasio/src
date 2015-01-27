@@ -93,8 +93,10 @@ class DistributedCannonGame(DistributedMinigame):
     def load(self):
         self.notify.debug('load')
         DistributedMinigame.load(self)
-        self.sky = loader.loadModel('phase_3.5/models/props/TT_sky')
-        self.ground = loader.loadModel('phase_4/models/minigames/toon_cannon_gameground')
+        self.sky = loader.loadModel('phase_3.5/models/props/BR_sky')
+        self.ground = loader.loadModel('phase_4/models/minigames/donalds_dock')
+        self.ground.find('**/donalds_boat').removeNode()
+        self.fog = Fog('DDFog')
         self.tower = loader.loadModel('phase_4/models/minigames/toon_cannon_water_tower')
         self.cannon = loader.loadModel('phase_4/models/minigames/toon_cannon')
         self.dropShadow = loader.loadModel('phase_3/models/props/drop_shadow')
