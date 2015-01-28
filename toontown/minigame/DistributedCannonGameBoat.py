@@ -12,6 +12,7 @@ class DistributedCannonGameBoat(DistributedBoat):
         self.minigame = None
         self.tower = loader.loadModel('phase_4/models/minigames/toon_cannon_water_tower')
         self.tower.setScale(0.3)
+        self.tower.setPos(0, 8, 0)
 
     def generate(self):
         DistributedObject.generate(self)

@@ -117,13 +117,14 @@ class DistributedCannonGame(DistributedMinigame):
         self.fog = Fog('DDFog')
         self.cannon = loader.loadModel('phase_4/models/minigames/toon_cannon')
         self.dropShadow = loader.loadModel('phase_3/models/props/drop_shadow')
-        self.hill = loader.loadModel('phase_4/models/minigames/cannon_hill')
+        #self.hill = loader.loadModel('phase_4/models/minigames/cannon_hill')
         self.sky.setScale(WORLD_SCALE)
         self.ground.setScale(GROUND_SCALE)
         self.cannon.setScale(CANNON_SCALE)
+        self.cannon.setPos(-64.361, 98.480, 3.280)
         self.dropShadow.setColor(0, 0, 0, 0.5)
-        self.ground.setColor(0.85, 0.85, 0.85, 1.0)
-        self.hill.setScale(1, 1, CANNON_Z / 20.0)
+        #self.ground.setColor(0.85, 0.85, 0.85, 1.0)
+        #self.hill.setScale(1, 1, CANNON_Z / 20.0)
         self.dropShadow.setBin('fixed', 0, 1)
         self.splash = Splash.Splash(render)
         self.dustCloud = DustCloud.DustCloud(render)
@@ -201,8 +202,8 @@ class DistributedCannonGame(DistributedMinigame):
         del self.splash
         self.dustCloud.destroy()
         del self.dustCloud
-        self.hill.removeNode()
-        del self.hill
+        #self.hill.removeNode()
+        #del self.hill
         self.rewardPanel.destroy()
         del self.rewardPanel
         self.jarImage.removeNode()
@@ -264,8 +265,8 @@ class DistributedCannonGame(DistributedMinigame):
 
         self.sky.reparentTo(render)
         self.ground.reparentTo(render)
-        self.hill.setPosHpr(0, CANNON_Y + 2.33, 0, 0, 0, 0)
-        self.hill.reparentTo(render)
+        #self.hill.setPosHpr(0, CANNON_Y + 2.33, 0, 0, 0, 0)
+        #self.hill.reparentTo(render)
         self.splash.reparentTo(render)
         self.dustCloud.reparentTo(render)
         self.__createToonModels(self.localAvId)
@@ -280,7 +281,7 @@ class DistributedCannonGame(DistributedMinigame):
         self.notify.debug('offstage')
         self.sky.reparentTo(hidden)
         self.ground.reparentTo(hidden)
-        self.hill.reparentTo(hidden)
+        #self.hill.reparentTo(hidden)
         for avId in self.avIdList:
             self.cannonDict[avId][0].reparentTo(hidden)
             if avId in self.dropShadowDict:
