@@ -1,3 +1,4 @@
+from toontown.minigame.DistributedCannonGameBoatAI import DistributedCannonGameBoatAI
 from DistributedMinigameAI import *
 from direct.distributed.ClockDelta import *
 from direct.fsm import ClassicFSM, State
@@ -5,51 +6,53 @@ from direct.fsm import State
 from direct.task import Task
 import CannonGameGlobals
 
-class DistributedCannonGameAI(DistributedMinigameAI):
 
+class DistributedCannonGameAI(DistributedMinigameAI):
     def __init__(self, air, minigameId):
         DistributedMinigameAI.__init__(self, air, minigameId)
+
         self.gameFSM = ClassicFSM.ClassicFSM('DistributedCannonGameAI', [State.State('inactive', self.enterInactive, self.exitInactive, ['play']), State.State('play', self.enterPlay, self.exitPlay, ['cleanup']), State.State('cleanup', self.enterCleanup, self.exitCleanup, ['inactive'])], 'inactive', 'inactive')
         self.addChildGameFSM(self.gameFSM)
+        self.boat = DistributedCannonGameBoatAI(self.air)
 
     def delete(self):
-        self.notify.debug('delete')
         del self.gameFSM
         DistributedMinigameAI.delete(self)
 
     def setGameReady(self):
-        self.notify.debug('setGameReady')
         DistributedMinigameAI.setGameReady(self)
 
+        self.boat.setMinigameId(self.doId)
+        self.boat.generateWithRequired(self.zoneId)
+        self.boat.start()
+
     def setGameStart(self, timestamp):
-        self.notify.debug('setGameStart')
         DistributedMinigameAI.setGameStart(self, timestamp)
+
         self.gameFSM.request('play')
 
     def setGameAbort(self):
-        self.notify.debug('setGameAbort')
         if self.gameFSM.getCurrentState():
             self.gameFSM.request('cleanup')
+
         DistributedMinigameAI.setGameAbort(self)
 
     def gameOver(self):
-        self.notify.debug('gameOver')
         self.gameFSM.request('cleanup')
+
         DistributedMinigameAI.gameOver(self)
 
     def enterInactive(self):
-        self.notify.debug('enterInactive')
+        pass
 
     def exitInactive(self):
         pass
 
     def enterPlay(self):
-        self.notify.debug('enterPlay')
         if not config.GetBool('endless-cannon-game', 0):
             taskMgr.doMethodLater(CannonGameGlobals.GameTime, self.timerExpired, self.taskName('gameTimer'))
 
     def timerExpired(self, task):
-        self.notify.debug('timer expired')
         self.gameOver()
         return Task.done
 
@@ -122,8 +125,8 @@ class DistributedCannonGameAI(DistributedMinigameAI):
         taskMgr.remove(self.taskName('game-over'))
 
     def enterCleanup(self):
-        self.notify.debug('enterCleanup')
         self.gameFSM.request('inactive')
+        self.boat.requestDelete()
 
     def exitCleanup(self):
         pass

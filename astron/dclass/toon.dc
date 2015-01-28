@@ -55,6 +55,7 @@ from toontown.minigame import DistributedMinigame/AI
 from toontown.minigame import DistributedMinigameTemplate/AI
 from toontown.minigame import DistributedRaceGame/AI
 from toontown.minigame import DistributedCannonGame/AI
+from toontown.minigame import DistributedCannonGameBoat/AI
 from toontown.minigame import DistributedPhotoGame/AI
 from toontown.minigame import DistributedPatternGame/AI
 from toontown.minigame import DistributedRingGame/AI
@@ -1065,6 +1066,10 @@ dclass DistributedCannonGame : DistributedMinigame {
   setCannonWillFire(uint32, int32/100, int32/100, uint32/100) broadcast;
   setToonWillLandInWater(int32/100) airecv clsend;
   announceToonWillLandInWater(uint32, int32/100) broadcast;
+};
+
+dclass DistributedCannonGameBoat : DistributedBoat {
+  setMinigameId(uint32) required broadcast ram;
 };
 
 dclass DistributedPhotoGame : DistributedMinigame {

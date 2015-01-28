@@ -9,6 +9,7 @@ from direct.directutil import Mopath
 from toontown.toonbase import ToontownGlobals
 
 class DistributedBoat(DistributedObject.DistributedObject):
+    PIER_TIME = 5.0
 
     def __init__(self, cr):
         DistributedObject.DistributedObject.__init__(self, cr)
