@@ -15,6 +15,8 @@ from toontown.toonbase import TTLocalizer
 from otp.otpbase import OTPGlobals
 import TagGameGlobals
 import Trajectory
+from toontown.dna.DNAParser import DNABulkLoader
+from toontown.dna.DNAStorage import DNAStorage
 
 class DistributedTagGame(DistributedMinigame):
     DURATION = TagGameGlobals.DURATION
@@ -49,7 +51,18 @@ class DistributedTagGame(DistributedMinigame):
         self.itText = OnscreenText.OnscreenText('itText', fg=(0.95, 0.95, 0.65, 1), scale=0.14, font=ToontownGlobals.getSignFont(), pos=(0.0, -0.8), wordwrap=15, mayChange=1)
         self.itText.hide()
         self.sky = loader.loadModel('phase_3.5/models/props/TT_sky')
-        self.ground = loader.loadModel('phase_4/models/minigames/daisys_garden')
+
+        dnaStorage = DNAStorage()
+        bulkLoader = DNABulkLoader(dnaStorage, ('phase_4/dna/storage.pdna', 'phase_8/dna/storage_DG.pdna',
+                                                'phase_8/dna/storage_DG_sz.pdna')
+        )
+        bulkLoader.loadDNAFiles()
+
+        sceneNode = loader.loadDNAFile(dnaStorage, 'phase_8/dna/daisys_garden_sz.pdna')
+        self.ground = hidden.attachNewNode(sceneNode)
+
+        dnaStorage.cleanup()
+
         self.music = base.loadMusic('phase_4/audio/bgm/MG_toontag.ogg')
         self.tagSfx = base.loadSfx('phase_4/audio/sfx/MG_Tag_C.ogg')
         self.itPointer = loader.loadModel('phase_4/models/minigames/bboard-pointer')
