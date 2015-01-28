@@ -1,36 +1,36 @@
 from pandac.PandaModules import VBase3, BitMask32
-GameTime = 60
+GameTime = 120
 NumBarrels = 4
-BarrelStartingPositions = (VBase3(4.3, 4, 0),
- VBase3(4.3, -4, 0),
- VBase3(-4.3, 4, 0),
- VBase3(-4.3, -4, 0))
-ToonStartingPositions = (VBase3(0, 16, 0),
- VBase3(0, -16, 0),
- VBase3(-16, 0, 0),
- VBase3(16, 0, 0))
-CogStartingPositions = (VBase3(35, 18, 0),
- VBase3(35, 0, 0),
- VBase3(35, -18, 0),
- VBase3(-35, 18, 0),
- VBase3(-35, 0, 0),
- VBase3(-35, -18, 0),
- VBase3(0, 27, 0),
- VBase3(0, -27, 0),
- VBase3(35, 9, 0),
- VBase3(-35, 9, 0),
- VBase3(35, -9, 0),
- VBase3(-35, -9, 0))
-CogReturnPositions = (VBase3(-35, 28, 0),
- VBase3(-14, 28, 0),
- VBase3(14, 28, 0),
- VBase3(35, 28, 0),
- VBase3(35, 0, 0),
- VBase3(35, -28, 0),
- VBase3(-14, -28, 0),
- VBase3(14, -28, 0),
- VBase3(-35, -28, 0),
- VBase3(-35, 0, 0))
+BarrelStartingPositions = (VBase3(-58.767, -11.994, 1.227),
+ VBase3(-62.939, -12.030, 1.227),
+ VBase3(-63.161, -5.343, 1.227),
+ VBase3(-58.906, -5.140, 1.227))
+ToonStartingPositions = (VBase3(-47.130, -7.911, -1.812),
+ VBase3(-61.209, -18.443, -1.975),
+ VBase3(-73.595, -9.132, -1.975),
+ VBase3(107.604, 1.243, 4.575))
+CogStartingPositions = (VBase3(29.649, -108.295, 2.525),
+ VBase3(33.235, -84.334, 2.525),
+ VBase3(-40.032, -71.041, 0.025),
+ VBase3(-85.560, -73.772, 0.025),
+ VBase3(-103.590, -48.323, -0.022),
+ VBase3(-129.524, -5.237, 0.025),
+ VBase3(-110.532, 50.293, 0.025),
+ VBase3(-54.219, 65.769, 0.025),
+ VBase3(25.103, 79.364, 2.525),
+ VBase3(14.955, 85.893, 2.525),
+ VBase3(-8.592, -16.053, 0.025),
+ VBase3(-8.137, 1.978, 0.025))
+CogReturnPositions = (VBase3(113.103, 1.026, 4.575),
+ VBase3(113.103, 1.026, 4.575),
+ VBase3(113.103, 1.026, 4.575),
+ VBase3(113.103, 1.026, 4.575),
+ VBase3(113.103, 1.026, 4.575),
+ VBase3(113.103, 1.026, 4.575),
+ VBase3(113.103, 1.026, 4.575),
+ VBase3(113.103, 1.026, 4.575),
+ VBase3(113.103, 1.026, 4.575),
+ VBase3(113.103, 1.026, 4.575))
 StageHalfWidth = 25
 StageHalfHeight = 18
 NoGoal = 0
