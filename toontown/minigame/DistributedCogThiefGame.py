@@ -18,6 +18,8 @@ from toontown.minigame.DistributedMinigame import DistributedMinigame
 from toontown.minigame import Trajectory
 from toontown.minigame import MinigameGlobals
 from toontown.minigame import CogThiefWalk
+from toontown.dna.DNAParser import DNABulkLoader
+from toontown.dna.DNAStorage import DNAStorage
 CTGG = CogThiefGameGlobals
 
 class DistributedCogThiefGame(DistributedMinigame):
@@ -91,7 +93,17 @@ class DistributedCogThiefGame(DistributedMinigame):
                 iconToHide.hide()
             self.barrels.append(barrel)
 
-        self.gameBoard = loader.loadModel('phase_4/models/minigames/toontown_central')
+        dnaStorage = DNAStorage()
+        bulkLoader = DNABulkLoader(dnaStorage, ('phase_4/dna/storage.pdna', 'phase_4/dna/storage_TT.pdna',
+                                                'phase_4/dna/storage_TT_sz.pdna')
+        )
+        bulkLoader.loadDNAFiles()
+
+        sceneNode = loader.loadDNAFile(dnaStorage, 'phase_4/dna/toontown_central_sz.pdna')
+        self.gameBoard = hidden.attachNewNode(sceneNode)
+
+        dnaStorage.cleanup()
+
         self.sky = loader.loadModel('phase_3.5/models/props/TT_sky')
         #self.gameBoard.find('**/floor_TT').hide()
         #self.gameBoard.find('**/floor_DD').hide()
@@ -147,6 +159,7 @@ class DistributedCogThiefGame(DistributedMinigame):
         self.removeChildGameFSM(self.gameFSM)
         del self.gameFSM
         self.gameBoard.removeNode()
+        self.sky.removeNode()
         del self.gameBoard
         for barrel in self.barrels:
             barrel.removeNode()

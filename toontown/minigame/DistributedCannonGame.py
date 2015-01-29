@@ -121,7 +121,6 @@ class DistributedCannonGame(DistributedMinigame):
         self.sky.setScale(WORLD_SCALE)
         self.ground.setScale(GROUND_SCALE)
         self.cannon.setScale(CANNON_SCALE)
-        self.cannon.setPos(-64.361, 98.480, 3.280)
         self.dropShadow.setColor(0, 0, 0, 0.5)
         #self.ground.setColor(0.85, 0.85, 0.85, 1.0)
         #self.hill.setScale(1, 1, CANNON_Z / 20.0)
