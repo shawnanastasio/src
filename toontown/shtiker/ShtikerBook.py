@@ -39,6 +39,7 @@ class ShtikerBook(DirectFrame, StateData.StateData):
          TTLocalizer.QuestPageToonTasks,
          TTLocalizer.TrackPageShortTitle,
          TTLocalizer.SuitPageTitle,
+         TTLocalizer.StrategyPageTitle,
          TTLocalizer.FishPageTitle,
          TTLocalizer.KartPageTitle,
          TTLocalizer.DisguisePageTitle,
@@ -235,6 +236,10 @@ class ShtikerBook(DirectFrame, StateData.StateData):
         elif pageName == TTLocalizer.SuitPageTitle:
             iconModels = loader.loadModel('phase_3.5/models/gui/sos_textures')
             iconGeom = iconModels.find('**/gui_gear')
+            iconModels.detachNode()
+        elif pageName == TTLocalizer.StrategyPageTitle:
+            iconModels = loader.loadModel('phase_3.5/models/gui/sos_textures')
+            iconGeom = iconModels.find('**/compass')
             iconModels.detachNode()
         elif pageName == TTLocalizer.FishPageTitle:
             iconModels = loader.loadModel('phase_3.5/models/gui/sos_textures')
