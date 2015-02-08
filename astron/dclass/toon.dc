@@ -66,6 +66,7 @@ from toontown.minigame import DistributedTugOfWarGame/AI
 from toontown.minigame import DistributedCatchGame/AI
 from toontown.minigame import DistributedDivingGame/AI
 from toontown.minigame import DistributedTargetGame/AI
+from toontown.minigame import DistributedGoonTossGame/AI
 from toontown.estate import EstateManager/AI
 from toontown.estate import DistributedEstate/AI
 from toontown.estate import DistributedHouse/AI
@@ -3111,6 +3112,9 @@ dclass DistributedCogThiefGame : DistributedMinigame {
   makeCogCarryBarrel(int32, int32, int8, int8, int32/100, int32/100, int32/100) broadcast;
   makeCogDropBarrel(int32, int32, int8, int8, int32/100, int32/100, int32/100) broadcast;
   markBarrelStolen(int32, int32, int8) broadcast;
+};
+
+dclass DistributedGoonTossGame : DistributedMinigame {
 };
 
 struct twoDTreasureInfo {
