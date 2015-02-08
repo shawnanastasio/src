@@ -21,6 +21,7 @@ import DistributedTravelGameAI
 import DistributedTugOfWarGameAI
 import DistributedTwoDGameAI
 import DistributedVineGameAI
+import DistributedGoonTossGameAI
 import TravelGameGlobals
 from otp.ai.MagicWordGlobal import *
 from toontown.minigame.TempMinigameAI import *
@@ -96,7 +97,8 @@ def createMinigame(air, playerArray, trolleyZone, minigameZone=None,
         ToontownGlobals.CogThiefGameId: DistributedCogThiefGameAI.DistributedCogThiefGameAI,
         ToontownGlobals.TwoDGameId: DistributedTwoDGameAI.DistributedTwoDGameAI,
         ToontownGlobals.TravelGameId: DistributedTravelGameAI.DistributedTravelGameAI,
-        ToontownGlobals.PhotoGameId: DistributedPhotoGameAI.DistributedPhotoGameAI
+        ToontownGlobals.PhotoGameId: DistributedPhotoGameAI.DistributedPhotoGameAI,
+        ToontownGlobals.GoonTossGameId: DistributedGoonTossGameAI.DistributedGoonTossGameAI
     }
     from TempMinigameAI import TempMgCtors
     for key, value in TempMgCtors.items():
