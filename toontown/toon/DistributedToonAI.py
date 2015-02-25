@@ -16,6 +16,7 @@ from NPCToons import npcFriends
 import ToonDNA
 from otp.ai.AIBaseGlobal import *
 from otp.ai.MagicWordGlobal import *
+from otp.ai.TimeManager import *
 from otp.avatar import DistributedAvatarAI
 from otp.avatar import DistributedPlayerAI
 from otp.otpbase import OTPGlobals
@@ -5176,3 +5177,10 @@ def catalog():
     # Gives next catalog.
     simbase.air.catalogManager.deliverCatalogFor(spellbook.getTarget())
     return 'The catalog has come early!'
+
+@magicWord(category=CATEGORY_CREATIVE)
+def keepalive():
+    """ Toon never falls asleep. """
+    invoker = spellbook.getInvoker()
+    invoker.neverDisable = 0
+    return 'Keepalive is active'
