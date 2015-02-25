@@ -20,3 +20,5 @@ boarding-group-merges #t
 
 # Temporary:
 want-phone-quest #f
+
+show-population #t

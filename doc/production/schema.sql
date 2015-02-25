@@ -43,6 +43,15 @@ CREATE TABLE `Messages` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
 
+CREATE TABLE `ChatAudit` (
+  `id`          int(10) NOT NULL AUTO_INCREMENT,
+  `time`        int(11) NOT NULL,
+  `sender`      varchar(40) NOT NULL,
+  `message`     varchar(255) NOT NULL,
+  `channel`     varchar(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
 CREATE TABLE `Toons` (
   `id`          int(10) NOT NULL AUTO_INCREMENT,
   `accountid`   int(11) NOT NULL,

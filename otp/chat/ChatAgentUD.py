@@ -54,3 +54,5 @@ class ChatAgentUD(DistributedObjectGlobalUD):
                                               self.air.ourChannel,
                                               [0, 0, '', cleanMessage, modifications, 0])
         self.air.send(dg)
+
+        self.air.csm.accountDB.persistChat(sender, message, self.air.ourChannel)

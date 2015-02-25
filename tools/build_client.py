@@ -32,5 +32,3 @@ cmd += ' ' + args.main_module
 os.system(cmd)
 
 print 'Done building the client.'
-else: 
-                    print "Building failed" 
