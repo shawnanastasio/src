@@ -52,7 +52,7 @@ from toontown.shtiker import ShtikerBook
 from toontown.shtiker import SuitPage
 from toontown.shtiker import TIPPage
 from toontown.shtiker import TrackPage
-from toontown.shtiker import StrategyPage
+from toontown.shtiker import RecordsPage
 from toontown.toon import ElevatorNotifier
 from toontown.toon import ToonDNA
 from toontown.toon.DistributedNPCToonBase import DistributedNPCToonBase
@@ -370,9 +370,9 @@ class LocalToon(DistributedToon.DistributedToon, LocalAvatar.LocalAvatar):
         self.suitPage = SuitPage.SuitPage()
         self.suitPage.load()
         self.book.addPage(self.suitPage, pageName=TTLocalizer.SuitPageTitle)
-        self.strategyPage = StrategyPage.StrategyPage()
-        self.strategyPage.load()
-        self.book.addPage(self.strategyPage, pageName=TTLocalizer.StrategyPageTitle)
+        self.recordsPage = RecordsPage.RecordsPage()
+        self.recordsPage.load()
+        self.book.addPage(self.recordsPage, pageName=TTLocalizer.RecordsPageTitle)
         self.fishPage = FishPage.FishPage()
         self.fishPage.setAvatar(self)
         self.fishPage.load()

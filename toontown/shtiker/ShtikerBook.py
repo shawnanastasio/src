@@ -39,13 +39,13 @@ class ShtikerBook(DirectFrame, StateData.StateData):
          TTLocalizer.QuestPageToonTasks,
          TTLocalizer.TrackPageShortTitle,
          TTLocalizer.SuitPageTitle,
-         TTLocalizer.StrategyPageTitle,
          TTLocalizer.FishPageTitle,
          TTLocalizer.KartPageTitle,
          TTLocalizer.DisguisePageTitle,
          TTLocalizer.NPCFriendPageTitle,
          TTLocalizer.GardenPageTitle,
          TTLocalizer.GolfPageTitle,
+         TTLocalizer.RecordsPageTitle,
          TTLocalizer.EventsPageName,
          TTLocalizer.AchievementsPageTitle,
          TTLocalizer.NewsPageName]
@@ -237,7 +237,7 @@ class ShtikerBook(DirectFrame, StateData.StateData):
             iconModels = loader.loadModel('phase_3.5/models/gui/sos_textures')
             iconGeom = iconModels.find('**/gui_gear')
             iconModels.detachNode()
-        elif pageName == TTLocalizer.StrategyPageTitle:
+        elif pageName == TTLocalizer.RecordsPageTitle:
             iconModels = loader.loadModel('phase_3.5/models/gui/sos_textures')
             iconGeom = iconModels.find('**/compass')
             iconModels.detachNode()
