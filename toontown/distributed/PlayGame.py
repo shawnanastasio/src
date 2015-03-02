@@ -15,6 +15,7 @@ from toontown.hood import DGHood
 from toontown.hood import DLHood
 from toontown.hood import GSHood
 from toontown.hood import OZHood
+from toontown.hood import UKHood
 from toontown.hood import GZHood
 from toontown.hood import SellbotHQ, CashbotHQ, LawbotHQ, BossbotHQ
 from toontown.hood import TutorialHood
@@ -44,6 +45,7 @@ class PlayGame(StateData.StateData):
      ToontownGlobals.CashbotHQ: CashbotHQ.CashbotHQ,
      ToontownGlobals.LawbotHQ: LawbotHQ.LawbotHQ,
      ToontownGlobals.GolfZone: GZHood.GZHood,
+     ToontownGlobals.Unknown: UKHood.UKHood,
      ToontownGlobals.PartyHood: PartyHood.PartyHood}
     Hood2StateDict = {ToontownGlobals.ToontownCentral: 'TTHood',
      ToontownGlobals.DonaldsDock: 'DDHood',
@@ -53,6 +55,7 @@ class PlayGame(StateData.StateData):
      ToontownGlobals.DonaldsDreamland: 'DLHood',
      ToontownGlobals.GoofySpeedway: 'GSHood',
      ToontownGlobals.OutdoorZone: 'OZHood',
+     ToontownGlobals.Unknown: 'UKHood',
      ToontownGlobals.Tutorial: 'TutorialHood',
      ToontownGlobals.MyEstate: 'EstateHood',
      ToontownGlobals.BossbotHQ: 'BossbotHQ',
@@ -74,6 +77,7 @@ class PlayGame(StateData.StateData):
           'DLHood',
           'GSHood',
           'OZHood',
+          'UKHood',
           'GZHood',
           'SellbotHQ',
           'CashbotHQ',
@@ -90,6 +94,7 @@ class PlayGame(StateData.StateData):
          State.State('DLHood', self.enterDLHood, self.exitDLHood, ['quietZone']),
          State.State('GSHood', self.enterGSHood, self.exitGSHood, ['quietZone']),
          State.State('OZHood', self.enterOZHood, self.exitOZHood, ['quietZone']),
+         State.State('UKHood', self.enterUKHood, self.exitUKHood, ['quietZone']),
          State.State('GZHood', self.enterGZHood, self.exitGZHood, ['quietZone']),
          State.State('BossbotHQ', self.enterBossbotHQ, self.exitBossbotHQ, ['quietZone']),
          State.State('SellbotHQ', self.enterSellbotHQ, self.exitSellbotHQ, ['quietZone']),
@@ -348,6 +353,13 @@ class PlayGame(StateData.StateData):
         self.hood.enter(requestStatus)
 
     def exitOZHood(self):
+        self._destroyHood()
+
+    def enterUKHood(self, requestStatus):
+        self.accept(self.hoodDoneEvent, self.handleHoodDone)
+        self.hood.enter(requestStatus)
+
+    def exitUKHood(self):
         self._destroyHood()
 
     def enterGZHood(self, requestStatus):
