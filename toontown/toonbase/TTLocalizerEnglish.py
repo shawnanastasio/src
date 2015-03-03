@@ -9881,6 +9881,10 @@ HouseTypeName = 'House'
 
 houseNames = {
   HouseGlobals.HOUSE_DEFAULT: 'Classic House',
+  HouseGlobals.HOUSE_TIKI: 'Tiki House',
+  HouseGlobals.HOUSE_TEPEE: 'Tepee House',
+  HouseGlobals.HOUSE_CASTLE: 'Castle House',
+  HouseGlobals.HOUSE_CUPCAKE: 'Cupcake House',
   HouseGlobals.HOUSE_CABIN: 'Cabin House'
 }
 
