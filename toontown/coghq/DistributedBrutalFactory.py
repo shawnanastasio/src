@@ -1,4 +1,4 @@
-from toontown.cog.DistributedFactory import DistributedFactory
+from toontown.coghq.DistributedFactory import DistributedFactory
 
 
 class DistributedBrutalFactory(DistributedFactory):
