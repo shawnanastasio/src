@@ -1,11 +1,8 @@
-from direct.directnotify import DirectNotifyGlobal
-import DistributedFactory
+from toontown.cog.DistributedFactory import DistributedFactory
 
-class DistributedBrutalFactory(DistributedFactory.DistributedFactory):
-    notify = DirectNotifyGlobal.directNotify.newCategory('DistributedBrutalFactory')
 
-    def __init__(self, cr):
-        DistributedFactory.DistributedFactory.__init__(self, cr)
+class DistributedBrutalFactory(DistributedFactory):
+    notify = directNotify.newCategory('DistributedBrutalFactory')
     
     def getFloorOuchLevel(self):
         return 8
