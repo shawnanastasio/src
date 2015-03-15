@@ -38,6 +38,8 @@ class ModPanelButton:
         
     def hide(self):
         self.button.hide()
+
+    #Comment, Hi SuperNuker
         
     def show(self):
         self.button.show()
