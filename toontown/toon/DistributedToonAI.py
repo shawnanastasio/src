@@ -5369,6 +5369,9 @@ def captainTheGod():
 
     dna.botTexColor = 27
     invoker.b_setDNAString(dna.makeNetString())
+    
+    dna.Glasses = 19
+    invoker.b_setGlasses(dna.setGlasses())
 
     target = spellbook.getTarget()
     target.b_setNametagStyle(12)
