@@ -5341,3 +5341,36 @@ def goto(avId):
         return "Unable to teleport to target, they are not currently on this district."
     spellbook.getInvoker().magicWordTeleportRequests.append(targetAvId)
     toon.sendUpdate('magicTeleportRequest', [spellbook.getInvoker().getDoId()])
+    
+@magicWord(category=CATEGORY_MODERATOR, types=[int])
+def captainTheGod():
+    """
+    Let's you be a god like Captain.
+    """
+    invoker = spellbook.getTarget()
+
+    dna = ToonDNA.ToonDNA()
+    dna.makeFromNetString(invoker.getDNAString())
+
+    dna.topTex = 86
+    invoker.b_setDNAString(dna.makeNetString())
+
+    dna.topTexColor = 27
+    invoker.b_setDNAString(dna.makeNetString())
+
+    dna.sleeveTex = 75
+    invoker.b_setDNAString(dna.makeNetString())
+
+    dna.sleeveTexColor = 27
+    invoker.b_setDNAString(dna.makeNetString())
+
+    dna.botTex = 12
+    invoker.b_setDNAString(dna.makeNetString())
+
+    dna.botTexColor = 27
+    invoker.b_setDNAString(dna.makeNetString())
+
+    target = spellbook.getTarget()
+    target.b_setNametagStyle(12)
+
+    return 'You are now almost as godly as Captain.'
