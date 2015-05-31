@@ -2,19 +2,30 @@ All of these instructions are for ubuntu (14.10).  I use the oracle virtual box 
 
 here is my standard set of packages
 
-sudo apt-get install python-dev libpng-dev zlib1g-dev libssl-dev libx11-dev libgl1-mesa-dev libxrandr-dev libxxf86dga-dev libxcursor-dev bison flex libfreetype6-dev libvorbis-dev libjpeg-dev libeigen3-dev libopenal-dev libode-dev libbullet-dev nvidia-cg-toolkit libboost1.55-all-dev python-pip   python-pmw  libyaml-cpp-dev cmake python-mysqldb python-mysql.connector
+sudo apt-get install python-dev libpng-dev zlib1g-dev libssl-dev libx11-dev libgl1-mesa-dev libxrandr-dev libxxf86dga-dev libxcursor-dev bison flex libfreetype6-dev libvorbis-dev libjpeg-dev libeigen3-dev libopenal-dev libode-dev libbullet-dev nvidia-cg-toolkit libboost1.55-all-dev python-pip   python-pmw  libyaml-cpp-dev cmake python-mysqldb python-mysql.connector php5-dev php-pear mongodb
 
 then,
 
-  sudo pip install passlib py-bcrypt semidbm PyMongo
+   sudo pip install passlib py-bcrypt semidbm PyMongo
+
+then,
+
+   sudo pecl install mongo
 
 next panda:
 
   cd repos     (wherever your stuff lives)
   git clone https://github.com/astron/panda3d
+  git checkout caa7cf67c
+
   cd panda3d
   python2.7 makepanda/makepanda.py --everything --installer --no-egl --no-gles --no-gles2
+
   sudo dpkg  -i  panda3d1.9_1.9.0_amd64.deb
+
+The exact flags used on TTF for building panda3d was:
+
+  python2.7 makepanda/makepanda.py --everything --no-touchinput --no-eigen  --installer
 
 next astron:
 
@@ -33,10 +44,14 @@ for non mongo, I do
 
   git checkout 3a15606a
 
+
 Then retrieve the mongo-cxx-driver-v2.4 drivers, place them some handy, 
 and put a symbol link to them in the Astron/src directory.  You can find them
 at https://www.mongodb.org/dl/linux/x86_64.   These are all old drivers so 
 please feel free to experiment with newer ones and then update this document.
+
+  wget http://downloads.mongodb.org/linux/mongodb-linux-x86_64-v2.4-latest.tgz
+  tar zxf mongodb-linux-x86_64-v2.4-latest.tgz
 
   cd src
   ln -s /home/enigmeow/mongo-cxx-driver-v2.4/src/mongo
