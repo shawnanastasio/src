@@ -51,3 +51,8 @@ your machine.   We can all be developers.
 
 And instead of hacking our servers, please help us make it better
 instead... 
+
+Running a Server
+===============
+You'll need [Astron](https://github.com/Astron/Astron). The latest revision is incompatible but an older revision such as 32f9c2a4c4fabcfbde2e0ea0f43f236378c7697c works fine.
+
