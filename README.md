@@ -54,5 +54,9 @@ instead...
 
 Running a Server
 ===============
-You'll need [Astron](https://github.com/Astron/Astron). The latest revision is incompatible but an older revision such as 32f9c2a4c4fabcfbde2e0ea0f43f236378c7697c works fine.
+You'll need [Astron](https://github.com/Astron/Astron). The latest revision is incompatible but an older revision such as [32f9c2a](https://github.com/Astron/Astron/tree/32f9c2a4c4fabcfbde2e0ea0f43f236378c7697c) works fine.
+
+You'll also need [Panda3D](https://github.com/Astron/panda3d/). You'll need a revision before 88db31, such as [caa7cf6](https://github.com/Astron/panda3d/tree/caa7cf67c797246ddecda37d9730f9f13d60c486).
+
+
 
